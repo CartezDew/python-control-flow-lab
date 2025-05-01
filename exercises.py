@@ -145,3 +145,36 @@ def determine_season():
 
 # Call the function
 determine_season()
+
+# Excercise 6
+
+def guess_number():
+    target = 42
+    max_attempts = 5
+    print("Welcome to the Number Guessing Game!")
+    print("Guess a number between 1 and 100. You have 5 attempts.")
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            guess = int(input(f"Attempt {attempt}: Enter your guess: "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
+
+        if guess == target:
+            print("Awesome, you guessed correctly!")
+            return
+        elif guess < 1 or guess > 100:
+            print("Your guess is out of range. Please guess between 1 and 100.")
+        elif guess < target and not guess == target:
+            print("Guess is too low.")
+        elif guess > target and not guess == target:
+            print("Guess is too high.")
+
+        if attempt == max_attempts - 1:
+            print("Last chance!")
+        elif attempt == max_attempts:
+            print("Sorry, you failed to guess the number in five attempts.")
+
+# Call the function
+guess_number()
